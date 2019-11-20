@@ -53,6 +53,11 @@ namespace cwsearch
             this.G = prev.G + (Math.Sqrt(((this.X - prev.X) * (this.X - prev.X)) + ((this.Y - prev.Y) * (this.Y - prev.Y))));
         }
 
+        public double CalculateDist(Node prev)
+        {
+            return prev.G + (Math.Sqrt(((this.X - prev.X) * (this.X - prev.X)) + ((this.Y - prev.Y) * (this.Y - prev.Y))));
+        }
+
         public void CalcH(Node final)
         {
             this.H = Math.Sqrt(((this.X - final.X) * (this.X - final.X)) + ((this.Y - final.Y) * (this.Y - final.Y)));

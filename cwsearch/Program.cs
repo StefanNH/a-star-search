@@ -17,7 +17,7 @@ namespace cwsearch
             List<int> path = new List<int>();
 
             //graph representation
-            var caves = FileReader.ReadFile("input5000.cav");
+            var caves = FileReader.ReadFile("input4.cav");
 
             var start = caves[0];
 
@@ -46,6 +46,11 @@ namespace cwsearch
                         }
                         else if (openList.Contains(v))
                         {
+                            double dist = v.CalculateDist(curr);
+                            if(dist < openList[openList.IndexOf(v)].G)
+                            {
+                                openList[openList.IndexOf(v)].Parent = curr;
+                            }
                           //  Console.Write("beep");
                         }
                     }
