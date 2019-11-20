@@ -14,9 +14,10 @@ namespace cwsearch
             //a star lists
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
+            List<int> path = new List<int>();
 
             //graph representation
-            var caves = FileReader.ReadFile("inputt.cav");
+            var caves = FileReader.ReadFile("input5000.cav");
 
             var start = caves[0];
 
@@ -45,7 +46,7 @@ namespace cwsearch
                         }
                         else if (openList.Contains(v))
                         {
-                            Console.Write("beep");
+                          //  Console.Write("beep");
                         }
                     }
                 }
@@ -60,10 +61,16 @@ namespace cwsearch
                 Node pathNode = closedList[closedList.IndexOf(finish)];
                 while (pathNode.Parent != null)
                 {
-                    Console.Write(pathNode.Cavern + " ");
+                    path.Add(pathNode.Cavern);
+                   // Console.Write(pathNode.Cavern + " ");
                     pathNode = pathNode.Parent;
+                    
                 }
-                Console.Write(start.Cavern);
+                path.Add(start.Cavern);
+                path.Reverse();
+                foreach(var q in path)
+                Console.Write(q + " ");
+                //Console.Write(start.Cavern);
             }
             Console.ReadLine();
         }
