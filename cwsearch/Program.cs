@@ -10,30 +10,27 @@ namespace cwsearch
     {
         static void Main(string[] args)
         {
+            
             //a star lists
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
 
             //graph representation
-            var caves = FileReader.ReadFile("input3.cav");
+            var caves = FileReader.ReadFile("inputt.cav");
 
             var start = caves[0];
 
             var finish = caves[caves.Count - 1];
 
-            foreach (var n in caves)
-            {
-                n.CalcH(finish);
-            }
             openList.Add(start);
-
             //Astar begins
             while (openList.Count != 0)
             {
+                if (closedList.Contains(finish)) { break; }
                 Node curr = openList[0];
+                curr.CalcH(finish);
                 openList.Remove(curr);
                 closedList.Add(curr);
-
                 if (curr.Adjecencies.Count != 0)
                 {
                     foreach (var v in curr.Adjecencies)
@@ -48,7 +45,7 @@ namespace cwsearch
                         }
                         else if (openList.Contains(v))
                         {
-
+                            Console.Write("beep");
                         }
                     }
                 }
