@@ -33,14 +33,6 @@ namespace cwsearch
             int[,] adjMatrix = new int[n, n];
             int[] toConvert = new List<int>(input).GetRange((n2 + 1), n * n).ToArray();
 
-            for (int k = 0; k < n; k++)
-            {
-                for (int f = 0; f < n; f++)
-                {
-                    adjMatrix[f, k] = toConvert[f * n + k];
-                }
-            }
-
             for (int i = 1; i <= n2; i += 2)
             {
                 Node node = new Node(caveNumbers, input[i], input[i + 1]);
@@ -48,16 +40,31 @@ namespace cwsearch
                 caveNumbers++;
             }
 
-            for (int l = 0; l < adjMatrix.GetLength(0); l++)
+            for (int k = 0; k < n; k++)
             {
-                for (int o = 0; o < adjMatrix.GetLength(1); o++)
+                for (int f = 0; f < n; f++)
                 {
-                    if (adjMatrix[l, o] == 1)
+                    // adjMatrix[f, k] = toConvert[f * n + k];
+                    if(toConvert[f * n + k] == 1)
                     {
-                        _caves[o].AddAdjecency(_caves[l]);
+                        _caves[k].AddAdjecency(_caves[f]);
                     }
+                    
                 }
             }
+
+
+
+            //for (int l = 0; l < adjMatrix.GetLength(0); l++)
+            //{
+            //    for (int o = 0; o < adjMatrix.GetLength(1); o++)
+            //    {
+            //        if (adjMatrix[l, o] == 1)
+            //        {
+            //            _caves[o].AddAdjecency(_caves[l]);
+            //        }
+            //    }
+            //}
 
             return _caves;
         }

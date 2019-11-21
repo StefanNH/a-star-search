@@ -17,7 +17,7 @@ namespace cwsearch
             List<int> path = new List<int>();
 
             //graph representation
-            var caves = FileReader.ReadFile("input5000.cav");
+            var caves = FileReader.ReadFile(args[0]);
 
             var start = caves[0];
 
@@ -25,11 +25,12 @@ namespace cwsearch
 
             openList.Add(start);
             //Astar begins
+            //Console.Write("A* begins");
             while (openList.Count != 0)
             {
                 if (closedList.Contains(finish)) { break; }
                 Node curr = openList[0];
-                curr.CalcH(finish);
+               // curr.CalcH(finish);
                 openList.Remove(curr);
                 closedList.Add(curr);
                 if (curr.Adjecencies.Count != 0)
@@ -40,6 +41,7 @@ namespace cwsearch
                         if (!openList.Contains(v))
                         {
                             v.Parent = curr;
+                            v.CalcH(finish);
                             v.CalcG(curr);
                             openList.Add(v);
                             openList = openList.OrderBy(x => x.F).ToList<Node>();
@@ -79,7 +81,7 @@ namespace cwsearch
                 Console.Write(q + " ");
                 //Console.Write(start.Cavern);
             }
-            Console.ReadLine();
+           // Console.ReadLine();
         }
     }
 }
