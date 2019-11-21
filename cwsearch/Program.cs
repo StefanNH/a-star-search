@@ -11,9 +11,8 @@ namespace cwsearch
     {
         static void Main(string[] args)
         {
-            string strArg1 = args[0];
-            string strConvert = strArg1.Substring(0, strArg1.IndexOf("."));
-            string fileToWrite = strConvert + ".csn";
+            string argCav = args[0] + ".cav";
+            string fileToWrite = args[0] + ".csn";
 
             //a star lists
             List<Node> openList = new List<Node>();
@@ -21,7 +20,7 @@ namespace cwsearch
             List<int> path = new List<int>();
 
             //graph representation
-            var caves = FileReader.ReadFile(args[0]);
+            var caves = FileReader.ReadFile(argCav);
 
             var start = caves[0];
 
