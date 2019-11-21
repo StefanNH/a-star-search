@@ -34,15 +34,6 @@ namespace cwsearch
         public Node Parent { get => _parent; set => _parent = value; }
         public List<Node> Adjecencies { get => _adjecencies; }
 
-        //public int Cavern { get => _cavern; set => _cavern = value; }
-        //public int X { get => _x; set => _x = value; }
-        //public int Y { get => _y; set => _y = value; }
-        //public double G { get => _g; set => _g = value; }
-        //public double H { get => _h; set => _h = value; }
-        //public double F { get => _f = this.G + this.H; set => _f = value; }
-        //public List<Node> Adjecencies { get => _adjecencies; }
-        //internal Node Parent { get => _parent; set => _parent = value; }
-
         public void AddAdjecency(Node n)
         {
             this.Adjecencies.Add(n);

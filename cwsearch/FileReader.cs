@@ -14,8 +14,7 @@ namespace cwsearch
             int caveNumbers = 1;
             List<Node> _caves = new List<Node>();
             List<int> input = new List<int>();
-           // List<int> toConvert = new List<int>();
-
+            // List<int> toConvert = new List<int>();
 
             using (StreamReader reader = File.OpenText(inFile))
             {
@@ -30,7 +29,7 @@ namespace cwsearch
 
             int n = input[0];
             int n2 = n * 2;
-            int[,] adjMatrix = new int[n, n];
+          //  int[,] adjMatrix = new int[n, n];
             int[] toConvert = new List<int>(input).GetRange((n2 + 1), n * n).ToArray();
 
             for (int i = 1; i <= n2; i += 2)

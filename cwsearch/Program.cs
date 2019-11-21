@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,10 @@ namespace cwsearch
     {
         static void Main(string[] args)
         {
-            
+            string strArg1 = args[0];
+            string strConvert = strArg1.Substring(0, strArg1.IndexOf("."));
+            string fileToWrite = strConvert + ".csn";
+
             //a star lists
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
@@ -63,7 +67,8 @@ namespace cwsearch
             }
             if (!closedList.Contains(finish))
             {
-                Console.Write("No path");
+                File.WriteAllText(fileToWrite, "0");
+                //Console.Write("No path");
             }
             else
             {
@@ -77,8 +82,9 @@ namespace cwsearch
                 }
                 path.Add(start.Cavern);
                 path.Reverse();
-                foreach(var q in path)
-                Console.Write(q + " ");
+                string output = string.Join(" ", path);
+                File.WriteAllText(fileToWrite, output);
+                //Console.Write(output + fileToWrite);
                 //Console.Write(start.Cavern);
             }
            // Console.ReadLine();
