@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace cwsearch
 {
-    public class FileReader
+    public static class FileReader
     {
         public static List<Node> ReadFile(string inFile)
         {

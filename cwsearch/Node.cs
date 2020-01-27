@@ -53,6 +53,8 @@ namespace cwsearch
         {
             this.H = Math.Sqrt(((this.X - final.X) * (this.X - final.X)) + ((this.Y - final.Y) * (this.Y - final.Y)));
         }
+
+        //used for testing only
         public String PrintStuff()
         {
             return "Cavern " + Cavern + " X " + X + " Y " + Y;

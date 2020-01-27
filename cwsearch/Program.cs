@@ -14,12 +14,10 @@ namespace cwsearch
             string argCav = args[0] + ".cav";
             string fileToWrite = args[0] + ".csn";
 
-            //a star lists
             List<Node> openList = new List<Node>();
             List<Node> closedList = new List<Node>();
             List<int> path = new List<int>();
 
-            //graph representation
             var caves = FileReader.ReadFile(argCav);
 
             var start = caves[0];
@@ -27,7 +25,7 @@ namespace cwsearch
             var finish = caves[caves.Count - 1];
 
             openList.Add(start);
-            //Astar begins
+
             while (openList.Count != 0)
             {
                 if (closedList.Contains(finish)) { break; }
